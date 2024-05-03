@@ -1,0 +1,44 @@
+select* from register
+select* from freelancer
+select* from client
+DECLARE 
+c number(2); 
+BEGIN c := clientid (client_id); 
+dbms_output.put_line('clientno is: ' || c); 
+END;
+
+select* from project
+select* from payment
+select* from category
+select* from skills
+select* from worked_projects
+select* from working_projects
+
+
+Select * From FreeLancer where FreeLancer_id <> all(select FreeLancer_id from working_projects)
+
+SELECT USERNAME AS "FREELANCER Name",PROJECTRATING As RATING,PROJECT_NAME from freelancer Y
+INNER join  worked_projects R 
+ON Y.freelancer_id=R.freelancer_id
+
+
+select client_no,project_id,project_category from working_projects A
+inner join client B
+on A.client_no=B.client_id
+
+
+SELECT
+    COUNT(*)
+FROM
+    working_projects
+where 
+project_category='webdevelopment';
+
+CREATE OR REPLACE FUNCTION clientid
+(client_id in number) 
+RETURN number 
+IS 
+c number(8); 
+BEGIN 
+insert into client(client_id) 
+END;

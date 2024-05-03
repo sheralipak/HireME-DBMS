@@ -1,0 +1,54 @@
+select* from register
+select* from freelancer
+select* from client
+select* from project
+select* from payment
+select* from category
+select* from skills
+select* from worked_projects
+select* from working_projects
+
+
+Select * From FreeLancer where FreeLancer_id <> all(select FreeLancer_id from working_projects)
+
+SELECT USERNAME AS "FREELANCER Name",PROJECTRATING As RATING,PROJECT_NAME from freelancer Y
+INNER join  worked_projects R 
+ON Y.freelancer_id=R.freelancer_id
+
+
+select client_no,project_id,project_category from working_projects A
+inner join client B
+on A.client_no=B.client_id
+
+
+SELECT
+    COUNT(*)
+FROM
+    working_projects
+where 
+project_category='webdevelopment';
+
+
+
+select budget,freelancer_id,project_id,client_id from payment where budget>(select budget from payment where budget='100$')
+
+update working_projects set clientpaymentstatus=clientpaymentstatus-(clientpaymentstatus*(3/100)) where clientpaymentstatus>'1'
+
+select budget,project_name,project_id,budget,duration from project where project_category='web development'
+
+SELECT COUNT (DISTINCT project_id)
+FROM working_projects
+//
+
+SELECT LOWER(project_name) FROM project
+
+SELECT COUNT (DISTINCT project_id), MAX (clientpaymentstatus)
+FROM working_projects
+
+SELECT COUNT (DISTINCT project_id), MIN (clientpaymentstatus)
+FROM working_projects
+ 
+
+SELECT UPPER(client_name) FROM client
+
+ 

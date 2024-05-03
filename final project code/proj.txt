@@ -1,0 +1,59 @@
+create table register(reg_id number primary key,name varchar(30),father_name varchar(30),email varchar(50),cell_number number,gender varchar(10),address varchar(100),password varchar(8))
+select* from register
+
+create table freelancer(freelancer_id number primary key,username varchar(40))
+select* from freelancer
+
+create table client(client_id number primary key,client_name varchar(40))
+select* from client
+
+
+create table project(project_id number primary key,project_name varchar(30),project_category varchar(30),project_subcategory varchar(40),details varchar(300),budget varchar(40),duration varchar(40),client_id number)
+select* from project
+ALTER TABLE project
+ADD FOREIGN KEY (client_id) REFERENCES client(client_id);
+
+create table payment(clientpaymentstatus number primary key,project_id number,freelancer_id number,workstaus varchar(20),recievestatus varchar(20),client_id varchar(30),budget varchar(20),developerstatus varchar(30))
+insert into payment(clientpaymentstatus,workstaus,recievestatus,budget,developerstatus)values(001,'1st phase','process completed','150$','3rd rank')
+insert into payment(clientpaymentstatus,workstaus,recievestatus,budget,developerstatus)values(002,'3st phase','process completed','350$','2nd rank')
+insert into payment(clientpaymentstatus,workstaus,recievestatus,budget,developerstatus)values(003,'2nd phase','process uncompleted','100$','5th rank')
+select* from payment
+ALTER TABLE project
+ADD FOREIGN KEY (client_id) REFERENCES client(client_id)
+ADD FOREIGN KEY (freelancer_id) REFERENCES freelancer(freelancer_id)
+ADD FOREIGN KEY (project_id) REFERENCES project(project_id);
+
+create table category(categoryid number primary key,categoryname varchar(30))
+insert into category(categoryid,categoryname)values(1,'webdevelopment')
+insert into category(categoryid,categoryname)values(2,'blockchain and cryptocurrency')
+insert into category(categoryid,categoryname)values(3,'amazon web service(aws)')
+insert into category(categoryid,categoryname)values(4,'mobile app development')
+insert into category(categoryid,categoryname)values(5,'artificial intelligence')
+insert into category(categoryid,categoryname)values(6,'website design')
+insert into category(categoryid,categoryname)values(7,'data analysis')
+insert into category(categoryid,categoryname)values(8,'online security')
+insert into category(categoryid,categoryname)values(9,'accountng and bookkeeping')
+insert into category(categoryid,categoryname)values(10,'database')
+select* from category
+
+create table skills(freelancer_id number,categoryid number,category_name varchar(30),subcategory1 varchar(30),subcategory2 varchar(30),subcategory3 varchar(30))
+insert into skills(category_name,subcategory1,subcategory2,subcategory3)values('webdevelopment','database','website design','data analysis')
+insert into skills(category_name,subcategory1,subcategory2,subcategory3)values('website design','data analysis','mobile app development','database')
+insert into skills(category_name,subcategory1,subcategory2,subcategory3)values('online security','database','artificial intelligence','blockchain and cryptocurrency')
+select* from skills
+drop table skills
+
+ALTER TABLE skills
+ADD FOREIGN KEY (freelancer_id) REFERENCES freelancer(freelancer_id)
+ADD FOREIGN KEY (categoryid) REFERENCES category(categoryid);
+
+create table worked_projects(overall_profile_rating varchar(30),project_id number,project_name varchar(30),projectrating varchar(30))
+insert into worked_projects(overall_profile_rating,projectrating)
+
+create table working_projects(startdate)
+
+
+create function insert(
+
+
+

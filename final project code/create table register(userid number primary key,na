@@ -1,0 +1,49 @@
+create table register(userid number primary key,name varchar(30),fathername varchar(30),gender varchar(20),cellno number,address varchar(80),email varchar(30),password varchar(20))
+insert into register(userid,name,fathername,gender,cellno,address,email,password)values(1,'ali','usman','male',0303003030,'lahore','ali@gmail.com',1234)
+insert into register(userid,name,fathername,gender,cellno,address,email,password)values(2,'usman','waseem','male',0304503030,'lahore','waseem@gmail.co',13234)
+insert into register(userid,name,fathername,gender,cellno,address,email,password)values(3,'noman','naseer','male',0364643030,'lahore','noman@gmail.com',15334)
+insert into register(userid,name,fathername,gender,cellno,address,email,password)values(4,'talha','afnan','male',03432003030,'skp','talha@gmsil.com',123554)
+insert into register(userid,name,fathername,gender,cellno,address,email,password)values(5,'mateen','noman','male',0303044030,'isl','mateen@gmail.com',133234)
+insert into register(userid,name,fathername,gender,cellno,address,email,password)values(6,'oman','usman','male',0344003030,'lahore','oman@gmail.com',3455)
+select* from register
+
+create table freelancer(freelancerid number primary key,username varchar(30))
+select* from PAYMENT
+insert into freelancer(freelancerid,username)values(1,'ali')
+insert into freelancer(freelancerid,username)values(2,'usman')
+insert into freelancer(freelancerid,username)values(3,'oman')
+
+create table client(clientid number primary key,clientname varchar(30))
+insert into client(clientid,clientname)values(1,'noman')
+insert into client(clientid,clientname)values(2,'talha')
+insert into client(clientid,clientname)values(3,'mateen')
+select* from client
+
+create table project(projectid number primary key,projectname varchar(20),details varchar(100),projectcategory varchar(30),projectsubcategory varchar(30),budget varchar(30),duration varchar(30),clientid number)
+insert into project(projectid,projectname,details,projectcategory,projectsubcategory,budget,duration,clientid)values(1,'hireme','afreelancingwebsite','webdevelopment','seo','150$','2months',1)
+insert into project(projectid,projectname,details,projectcategory,projectsubcategory,budget,duration,clientid)values(2,'freelancer.com','afreelancingwebsite','webdevelopment','database','190$','5months',2)
+insert into project(projectid,projectname,details,projectcategory,projectsubcategory,budget,duration,clientid)values(3,'fiver.com','afreelancingwebsite','webdevelopment','php','1900$','9months',3)
+select* from project
+
+create table payment(projectid number,freelancerid number,workstaus varchar(20),recievestatus varchar(20),clientpaymentstatus varchar(30),clientid varchar(30),budget varchar(20),developerstatus varchar(30))
+insert into payment(projectid,freelancerid,workstaus,recievestatus,clientpaymentstatus,clientid,budget,developerstatus)values(1,2,'1st phase','process completed','ok',1,'150$','3rd rank')
+insert into payment(projectid,freelancerid,workstaus,recievestatus,clientpaymentstatus,clientid,budget,developerstatus)values(2,3,'3st phase','process completed','ok',2,'190$','2nd rank')
+insert into payment(projectid,freelancerid,workstaus,recievestatus,clientpaymentstatus,clientid,budget,developerstatus)values(3,1,'2nd phase','process uncompleted','not yet',3,'1900$','5th rank')
+
+insert into skills(freelancerid,freelancername,category,subcategory1,subcategory2,subcategory3,projectworked)values(1,'ali','webdevelopment','database','website design','data analysis','fiver.com')
+insert into skills(freelancerid,freelancername,category,subcategory1,subcategory2,subcategory3,projectworked)values(2,'usman','website design','data analysis','mobile app development','database','hireme.com')
+insert into skills(freelancerid,freelancername,category,subcategory1,subcategory2,subcategory3,projectworked)values(3,'oman','online security','database','artificial intelligence','blockchain and cryptocurrency','freelancer.com')
+select* from skills
+
+create table category(categoryid number primary key,categoryname varchar(30))
+insert into category(categoryid,categoryname)values(1,'webdevelopment')
+insert into category(categoryid,categoryname)values(2,'blockchain and cryptocurrency')
+insert into category(categoryid,categoryname)values(3,'amazon web service(aws)')
+insert into category(categoryid,categoryname)values(4,'mobile app development')
+insert into category(categoryid,categoryname)values(5,'artificial intelligence')
+insert into category(categoryid,categoryname)values(6,'website design')
+insert into category(categoryid,categoryname)values(7,'data analysis')
+insert into category(categoryid,categoryname)values(8,'online security')
+insert into category(categoryid,categoryname)values(9,'accountng and bookkeeping')
+insert into category(categoryid,categoryname)values(10,'database')
+

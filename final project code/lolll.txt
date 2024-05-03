@@ -1,0 +1,44 @@
+create table register(reg_id number primary key,name varchar(30),father_name varchar(30),email varchar(50),cell_number number,gender varchar(10),address varchar(100),password varchar(8))
+select* from register
+
+create table freelancer(freelancer_id number primary key,username varchar(40))
+select* from freelancer
+
+create table client(client_id number primary key,client_name varchar(40))
+select* from client
+
+
+create table project(project_id number primary key,project_name varchar(30),project_category varchar(30),project_subcategory varchar(40),details varchar(300),budget varchar(40),duration varchar(40),client_id number)
+select* from project
+ALTER TABLE project
+ADD FOREIGN KEY (client_id) REFERENCES client(client_id);
+drop table project
+
+create table payment(clientpaymentstatus number primary key,project_id number,freelancer_id number,workstaus varchar(20),recievestatus varchar(20),client_id varchar(30),budget varchar(20),developerstatus varchar(30))
+select* from payment
+ALTER TABLE project
+ADD FOREIGN KEY (client_id) REFERENCES client(client_id)
+ADD FOREIGN KEY (freelancer_id) REFERENCES freelancer(freelancer_id)
+ADD FOREIGN KEY (project_id) REFERENCES project(project_id);
+
+create table category(categoryid number primary key,categoryname varchar(30))
+select* from category
+
+create table skills(freelancer_id number,categoryid number,category_name varchar(30),subcategory1 varchar(30),subcategory2 varchar(30),subcategory3 varchar(30))
+drop table skills
+
+ALTER TABLE skills
+ADD FOREIGN KEY (freelancer_id) REFERENCES freelancer(freelancer_id)
+ADD FOREIGN KEY (categoryid) REFERENCES category(categoryid);
+
+create table worked_projects(overall_profile_rating varchar(30),project_id number,project_name varchar(30),projectrating varchar(30))
+insert into worked_projects(overall_profile_rating,projectrating)
+
+
+create table working_projects(startdate)
+
+
+create function insert(
+
+
+
